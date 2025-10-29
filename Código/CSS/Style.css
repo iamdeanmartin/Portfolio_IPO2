@@ -181,6 +181,11 @@ section {
   position: relative;
 }
 
+section#contacto {
+  min-height: auto;
+  padding: 2rem 12% 1rem;
+}
+
 /* Apartados dedicados a la foto de perfil, "SobreMi" etc... */
 .sobremi {
   display: flex;
@@ -610,7 +615,7 @@ a {
 }
 
 footer {
-  margin-top: 6rem;
+  margin-top: 2rem;
   padding-bottom: 3rem;
   display: flex;
   flex-direction: column;
