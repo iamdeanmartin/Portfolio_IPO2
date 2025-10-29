@@ -1,43 +1,5 @@
-// Código que se encarga del icono del menu y su apertura
+//Código para el cambio al dark mode y el light mode
 document.addEventListener("DOMContentLoaded", function () {
-  const menuIcon = document.getElementById("menu-icon");
-  const linksNavegador = document.getElementById("link-navegador");
-  const navLinks = document.querySelectorAll(".links-navegador li a");
-
-  // Verifica si los elementos del menú existen
-  if (!menuIcon || !linksNavegador) {
-    console.error("Elementos del menú no encontrados");
-    return;
-  }
-
-  // Función para alternar el menú
-  function toggleMenu() {
-    linksNavegador.classList.toggle("active");
-    document.body.classList.toggle("no-scroll");
-  }
-
-  // Esto es para que se abra el menu al hacer click
-  menuIcon.addEventListener("click", function (e) {
-    e.stopPropagation(); //Hace que el click solo lo detecte en el icono del menu
-    toggleMenu();
-  });
-
-  // Esto es para que cuando hagas click en un link del menu se cierre el menu
-  navLinks.forEach((link) => {
-    link.addEventListener("click", function () {
-      linksNavegador.classList.remove("active");
-      document.body.classList.remove("no-scroll");
-    });
-  });
-
-  // Aquí hace que se cierre el menu automaticamente al hacer click fuera
-  document.addEventListener("click", function (e) {
-    if (!menuIcon.contains(e.target) && !linksNavegador.contains(e.target)) {
-      linksNavegador.classList.remove("active");
-      document.body.classList.remove("no-scroll");
-    }
-  });
-
   //Código para el cambio al dark mode y el light mode
   const themeSwitch = document.getElementById("theme-switch");
 
@@ -70,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     enableDarkMode();
   }
 
+  //Esto es para que el modo cambie cuando pulsamos el botón
   themeSwitch.addEventListener("click", () => {
     if (darkmode !== "active") {
       enableDarkMode();

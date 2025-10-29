@@ -1,5 +1,5 @@
 * {
-  /* Implementamos unas características comunes al proyecto. */
+  /* Implementamos unas caracterÃ­sticas comunes al proyecto. */
 
   margin: 0;
   padding: 0;
@@ -7,7 +7,7 @@
   font-family: "Montserrat", sans-serif;
   text-decoration: none;
   scroll-behavior: smooth; /* Esto modifica la forma en la que se percibe 
-                            la página al navegar arriba y abajo dentro de ella. */
+                            la pÃ¡gina al navegar arriba y abajo dentro de ella. */
   list-style: none;
 }
 
@@ -97,119 +97,81 @@ body {
     e inferior de la pantalla. */
 }
 
-/* Afectamos al botón para poner el light o el darkmode*/
+/*Apartado dedicado a los elementos de la cabecera. */
 #theme-switch {
   height: 50px;
   width: 50px;
-  padding: 0px;
+  padding: 0;
   border-radius: 50%;
   background-color: gray;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 20px;
-  left: 20px;
+  cursor: pointer;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  border: none;
+  z-index: 1000;
+  transition: background-color 0.25s ease, transform 0.15s ease;
 }
 
-/*Estos tres estilos se hacen para que los iconos no salgan a la vez y que se esconda uno
-y aparezca el otro dependiendo del theme que esté activo*/
+/* Iconos dentro del botón */
+#theme-switch i {
+  color: white;
+  font-size: 1.2rem;
+  transition: color 0.25s ease;
+}
+
+/* Mostrar solo el icono de luna por defecto */
 #theme-switch i:last-child {
   display: none;
 }
 
+/* Cuando está activado el modo oscuro, cambia a sol */
 .darkmode #theme-switch i:first-child {
   display: none;
 }
+
 .darkmode #theme-switch i:last-child {
   display: block;
 }
 
-/*Apartado dedicado a los elementos de la cabecera. */
-header {
-  position: fixed; /*Impedirá que se mueva a medida que el usuario baja en la página. */
-  top: 1rem;
-  left: 50%;
-  transform: translateX(
-    -50%
-  ); /* Esta función centra al completo el "header" según su 
-                                al trabajar según su anchura. */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(8px); /* Aporta ese efecto de difuminado. */
-  color: white;
-  padding: 0.5rem 1.5rem; /* El primer valor distancia los elementos 
-                            las partes superiores, sin embargo el segundo
-                            se encarga de los lados. */
-  border-radius: 3rem;
-  z-index: 1000; /* Esta propiedad se asegura de mantener el "header" en lo alto de las capas de la página. */
+/* Efecto hover */
+#theme-switch:hover {
+  background-color: black;
+  transform: scale(1.06);
 }
 
+#theme-switch:hover i {
+  color: white;
+}
+
+/* Hover en modo oscuro */
+.darkmode #theme-switch:hover {
+  background-color: #bb86fc;
+}
+
+.darkmode #theme-switch:hover i {
+  color: #121212;
+}
+
+/* Efecto al hacer clic */
+#theme-switch:active {
+  transform: scale(0.96);
+}
+
+/* Foco accesible (teclado) */
+#theme-switch:focus-visible {
+  outline: 3px solid #bb86fc;
+  outline-offset: 2px;
+}
+
+/* Eliminamos la barra de navegación y el logo */
+.links-navegador,
+#menu-icon,
 .logo {
-  color: white;
-  justify-content: center;
-  font-size: 1.3rem;
-  font-weight: 600;
-  text-wrap: nowrap; /* Utilizamos esta propiedad para que cuando la pantalla mengue de tamaño
-                        no se envuelva el texto y quede estático en una misma línea. */
-  transition: 0.3s ease-in-out;
-}
-
-.logo:hover {
-  transform: scale(
-    1.1
-  ); /* Esta función hace que al pasar el cursor por encima del objeto
-                            indicado la medida de este aumenta en base de la escala indicada. */
-}
-
-.links-navegador {
-  display: flex;
-  gap: 2rem;
-  flex: nowrap; /* A pesar de añadir este recurso el Sobre Mí sigue envolviendose. */
-  justify-content: center;
-  padding-bottom: 3px;
-  margin: 0;
-}
-
-li a {
-  /* Con esta parte del código se modfican los "ancor" de los elemntos de la lista. */
-
-  position: relative; /* Ponemos la posición en relativo ya que estará en relativo a su elemento padre. */
-  color: white;
-  font-weight: 300;
-  padding: 3px 0;
-}
-
-li a::before {
-  /* El before es un efecto "hover". */
-
-  position: absolute;
-  content: "";
-  width: 0;
-  left: 0;
-  height: 5px;
-  top: 25px;
-  border-radius: 1rem;
-  transition: 0.3s ease-in-out; /* Transición de tres fases: principio, medio y final (con velocidades distintas. */
-  background: linear-gradient(
-    to right,
-    rgba(255, 171, 145, 1) 0%,
-    rgba(255, 89, 131, 1) 100%
-  );
-  /* Esta función genera una linea
-                                                                        cambiante de color de izquierda a derecha. */
-}
-
-li a:hover::before {
-  width: 100%; /* Gracias a esto en el momento que el cursor pase por encima del elemento que afecte el "before", el 
-                    ancho que tendrá es de un 100%. */
-}
-
-#menu-icon {
-  font-size: 2rem;
-  display: none; /* Al no necesitarlo hasta unos píxeles en concreto lo dejamos que no se muestre. */
+  display: none !important;
 }
 
 section {
@@ -230,15 +192,15 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10rem; /* Le damos una separación entre la foto y la información personal. */
+  gap: 10rem; /* Le damos una separaciÃ³n entre la foto y la informaciÃ³n personal. */
 }
 
 .sobremi img {
-  /* En esteapartado del código modificamos la apariencia de la foto de perfil. */
+  /* En esteapartado del cÃ³digo modificamos la apariencia de la foto de perfil. */
   /* Porque la imagen no se coloca al costado de las letras tal y como el ejemplo de youtube. */
 
   width: 26vw;
-  aspect-ratio: 1/1; /*Esta función nos permite modificar el formato de la imagen a que no sea rectangulo. */
+  aspect-ratio: 1/1; /*Esta funciÃ³n nos permite modificar el formato de la imagen a que no sea rectangulo. */
   border-radius: 50%;
   object-fit: cover; /* Nos permite redondear la imagen y haciendo el "detach" anterior. */
 }
@@ -270,7 +232,7 @@ section {
     rgba(255, 89, 131, 1) 100%
   );
   background-clip: text;
-  color: transparent; /* Gracias a estas lineas de código hacemos que el texto tenga el color gradient. */
+  color: transparent; /* Gracias a estas lineas de cÃ³digo hacemos que el texto tenga el color gradient. */
   font-size: 2rem;
 }
 
@@ -303,7 +265,7 @@ a {
   color: white;
 }
 
-/* Apartado dedicado a la sección de Experiencia Laboral. */
+/* Apartado dedicado a la secciÃ³n de Experiencia Laboral. */
 
 .titulo_seccion {
   text-align: center;
@@ -318,7 +280,7 @@ a {
     2,
     1fr
   ); /* Colocamos en cuantas columnas se organizan
-    las targetas de experiencias además de qué medida tendrán. */
+    las targetas de experiencias ademÃ¡s de quÃ© medida tendrÃ¡n. */
   align-items: center;
   justify-content: center;
   gap: 20px;
@@ -393,7 +355,7 @@ a {
 }
 
 .grid1 {
-  /*En este apartado de código solo afectaremos a las targetas de lenguajes de la parte superior. */
+  /*En este apartado de cÃ³digo solo afectaremos a las targetas de lenguajes de la parte superior. */
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -402,7 +364,7 @@ a {
 }
 
 .grid2 {
-  /*En este apartado de código solo afectamos a las targetas de lenguajes de la parte inferior. */
+  /*En este apartado de cÃ³digo solo afectamos a las targetas de lenguajes de la parte inferior. */
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -412,7 +374,7 @@ a {
 }
 
 .carta_habilidad {
-  /* Todas las tarjetas del proyecto tendrán las mismas características. */
+  /* Todas las tarjetas del proyecto tendrÃ¡n las mismas caracterÃ­sticas. */
   /* Porque no aparecen las cartas del grid de la manera deseada, dividido en 3
                         por encima y en 2 por debajo. */
 
@@ -455,8 +417,8 @@ a {
 }
 
 .carta_habilidad:hover h4 {
-  /* Hemos de indicar el cambio de color del título cuando el cursor pasa por encima, 
-                                    sino el título al ser negro no se ve. */
+  /* Hemos de indicar el cambio de color del tÃ­tulo cuando el cursor pasa por encima, 
+                                    sino el tÃ­tulo al ser negro no se ve. */
 
   background: linear-gradient(
     to right,
@@ -467,10 +429,10 @@ a {
   color: transparent;
 }
 
-/* Apartado de la Formación Educativa. */
+/* Apartado de la FormaciÃ³n Educativa. */
 
 .informacion_educacion {
-  /*Porque no se está poniendo en el medio los elementos. */
+  /*Porque no se estÃ¡ poniendo en el medio los elementos. */
 
   display: flex;
   flex-direction: column;
@@ -568,7 +530,7 @@ a {
 .carta_proyecto:hover {
   background-color: black;
   color: white;
-  transform: translateY(-10px) scale(1.02); /* Esto hará que produzca una animación de 
+  transform: translateY(-10px) scale(1.02); /* Esto harÃ¡ que produzca una animaciÃ³n de 
                                     tirar la targeta hacia arriba como si la cogieras. */
 }
 
@@ -578,14 +540,14 @@ a {
 }
 
 .carta_proyecto:hover .boton {
-  /* Se encarga de cambiar el estilo al botón cuando a la carta le pasamos el cursor. */
+  /* Se encarga de cambiar el estilo al botÃ³n cuando a la carta le pasamos el cursor. */
 
   border: 2px solid white;
   color: white;
 }
 
 .carta_proyecto:hover .boton:hover {
-  /* Aquí también cambia el estilo cuando se pasa el cursor pero solo se encarga del estilo del botón. */
+  /* AquÃ­ tambiÃ©n cambia el estilo cuando se pasa el cursor pero solo se encarga del estilo del botÃ³n. */
 
   border: 2px solid white;
   background-color: white;
@@ -643,7 +605,7 @@ a {
   position: absolute;
   font-size: 2rem;
   top: 50%;
-  left: 35px; /* Aumentando el número del left hace que el logo tire a la derecha. */
+  left: 35px; /* Aumentando el nÃºmero del left hace que el logo tire a la derecha. */
   transform: translate(50%, -50%);
 }
 
@@ -698,7 +660,7 @@ footer ul li a {
 
 .redes_sociales {
   font-size: 2.5rem;
-  cursor: pointer; /* Está propiedad hace que el elemento sea clickable. */
+  cursor: pointer; /* EstÃ¡ propiedad hace que el elemento sea clickable. */
   transition: 0.2s ease-in-out;
 }
 
@@ -814,6 +776,10 @@ footer ul li a {
 
 /* Movil */
 @media (max-width: 600px) {
+  #ContenidoPrivado {
+    margin-top: 100px;
+  }
+
   #menu-icon {
     display: block;
     cursor: pointer;
@@ -856,19 +822,19 @@ footer ul li a {
     height: 5px;
     top: 25px;
     border-radius: 1rem;
-    transition: 0.3s ease-in-out; /* Transición de tres fases: principio, medio y final (con velocidades distintas. */
+    transition: 0.3s ease-in-out; /* TransiciÃ³n de tres fases: principio, medio y final (con velocidades distintas. */
     background: linear-gradient(
       to right,
       rgba(255, 171, 145, 1) 0%,
       rgba(255, 89, 131, 1) 100%
     );
-    /* Esta función genera una linea
+    /* Esta funciÃ³n genera una linea
                                                                         cambiante de color de izquierda a derecha. */
   }
 
   li a:hover::before {
     width: 100%; /* Gracias a esto en el momento que el cursor pase por encima del elemento que afecte el "before", el 
-                    ancho que tendrá es de un 100%. */
+                    ancho que tendrÃ¡ es de un 100%. */
   }
 
   header {
