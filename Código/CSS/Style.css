@@ -183,7 +183,7 @@ section {
 
 section#contacto {
   min-height: auto;
-  padding: 2rem 12% 1rem;
+  padding: 1.5rem 12% 0.75rem;
 }
 
 /* Apartados dedicados a la foto de perfil, "SobreMi" etc... */
@@ -574,44 +574,51 @@ a {
 /* Apartado de contacto en el footer. */
 
 .input-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
-  gap: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  padding: 1rem 1.8rem 1rem 2.2rem;
 }
 
 .input-box input {
-  /* Afectamos a la caja donde se introduce el mail. */
+  width: 100%;
+  padding: 1rem 1.8rem 1rem 3rem;
+  font-size: 1.3rem;
+  border-radius: 2rem;
+  text-align: left;
+}
 
-  border-radius: 3rem;
-  border: 2px solid black;
-  padding: 2rem 4rem;
-  font-size: 2rem;
-  text-align: center;
+.input-box .boton {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 14px;
+  margin-top: 0.75rem;
+  height: 48px;
+  padding: 0 26px;
+  border-radius: 24px;
+  font-size: 1rem;
+  line-height: 48px;
 }
 
 .input-box input::placeholder {
-  /* Afectamos al texto de dentro de la caja del placeholder. */
-
   font-size: 2rem;
   text-align: center;
 }
 
 .input {
   position: relative;
+  display: inline-block;
+  width: 90%;
+  max-width: 600px;
+  margin-top: 0.75rem;
+  vertical-align: middle;
 }
 
 .input i {
-  /* Afectamos al logo. */
-
   position: absolute;
-  font-size: 2rem;
   top: 50%;
-  left: 35px;
-  transform: translate(50%, -50%);
+  left: 20px;
+  transform: translateY(-50%);
+  font-size: 1.7rem;
 }
 
 footer {
