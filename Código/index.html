@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Personal</title> <!-- PONER LOGO EN LA PESTAÑA NUEVA -->
+    <link rel="stylesheet" href="./CSS/Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="./JAVASCRIPT/script.js" defer></script>
+</head>
+
+<body>
+
+    <!--Metemos los logos en el header al lado del nombre y el menu
+    para el cambio de tono de la página -->
+    <header class="header">
+        <button id="theme-switch">
+            <i class="fa-solid fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+        </button>
+        
+        <a href="#" class="logo"><span class="textoGradient">Dean Martin</span></a>
+    
+        <ul class="links-navegador" id="link-navegador">
+            <li><a href="#sobremi">Sobre Mi</a></li>
+            <li><a href="#contenido">Contenido</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+    </header>
+
+    <!--En este apartado ponemos lo del mail y la contraseña para acceder a la API-->
+    <div id="ContenidoPrivado">
+        <h2>Contenido Privado</h2>
+    
+        <!--Aquí se pide el mail-->
+        <form id="loginForm">
+            <div class="form">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="escribeTu@email.com">
+                <div id="emailError" class="error"></div>
+            </div>
+            
+            <!--Aqui se pide la contraseña-->
+            <div class="form">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" required placeholder="Mínimo 8 caracteres">
+                <div id="contraseñaError" class="error"></div>
+            </div>
+            
+            <button type="submit" id="botonEnvio">Acceder</button>
+        </form>
+    
+        <!--Aquí se mostrará el mensaje de correcto. Este esta fuera al solo salir si las credenciales son correctas
+        despues de haber sido comprobadas-->
+        <div id="mensaje" class="correcto"></div>
+    
+        <!--Se muestra el listado de usuarios.-->
+        <div id="userList"></div>
+    </div>
+
+    <!--A pesar que el wrapper esté arriba de todo estará abajo en la parte derecha.-->
+    <div class="wrapper">
+        <div class="cookies">
+            <i class="fa-solid fa-cookie"></i>
+            <h2>Consentimiento de Cookies</h2>
+        </div> 
+        <div class="data">
+            <p>Este sitio web usa cookies para mejorar tu experiencia de navegación. <a href="#">Leer más...</a></p>
+        </div>
+        <div class="buttons">
+            <button class="button" id="acceptBtn">Aceptar</button>
+            <button class="button" id="declineBtn">Rechazar</button>
+        </div>
+    </div>
+
+    <section id="sobremi" class="sobremi">
+
+        <div class="sobremicontainer">
+
+            <img src="./Imagenes/Otros/Foto_perfil.jpeg" alt="Foto de perfil de Dean Martin">
+
+            <div class="caja_info">
+
+                <h3>Hola, soy</h3>
+                <h1>Dean Martin</h1>
+                <span>Desarrollador Backend</span>
+
+                <div class="grupo_botones">
+
+                    <a href="../PDF/CURRIÌCULUM PERSONAL .pdf" class="boton" Download>Descargar CV</a>
+                    <a class="boton" href="#contacto">Contacto</a>
+                    <!-- Cambiar color boton contacto osea el texto de tanto descargar cv como el de contacto -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contenido" class="contenido">
+
+        <h2 class="titulo_seccion">Experiencia Laboral</h2>
+
+        <div class="informacion_experiencia">
+
+            <div class="grid">
+
+                <div class="carta_grid">
+
+                    <i class="fa-solid fa-building"></i>
+
+                    <span class="textoGradient">Peón de Obra</span> <!-- Porque esta grid no me sale -->
+
+                    <h3>Ayuda Familiar</h3> <!-- Debajo del puesto de trabajo se colocarán la empresa donde se ha 
+                                            ejecutado el trabajo. -->
+
+                    <h3>+2 Meses</h3> <!-- En esta línea se colocará el tiempo de experiencia en ese puesto. -->
+
+                    <p>Fué mi primera experiencia laboral. Durante la reforma aprendí a crear y usar
+                        diversas herramientas de la obra (yeso, lijar, etc.).
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="grid">
+
+                <div class="carta_grid">
+
+                    <i class="fa-solid fa-martini-glass-citrus"></i>
+
+                    <span class="textoGradient">Camarero</span>
+
+                    <h3>Bar La Cantonada</h3>
+
+                    <h3>+1 Año</h3>
+
+                    <p>Atención y servicio ejemplar hacia el cliente, registro de
+                        la facturación de la jornada laboral, gestión de apertura y cierre del local...
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="grid">
+
+                <div class="carta_grid">
+
+                    <i class="fa-solid fa-burger"></i>
+
+                    <span class="textoGradient">Ayudante Cocina Nivel C-D</span>
+
+                    <h3>Gal·la Urban Food S.L.</h3>
+
+                    <h3>+1 Año</h3>
+
+                    <p>Experiencia en procesos de cocina y su mantenimiento, experiencia en
+                        procesos alimentarios (recetas, tratado de productos)...
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="grid">
+
+                <div class="carta_grid">
+
+                    <i class="fa-solid fa-burger"></i>
+
+                    <span class="textoGradient">Ayudante Cocina Nivel C-D</span>
+
+                    <h3>La Ben Parida S.L.</h3>
+
+                    <h3>+6 Meses</h3>
+
+                    <p>Experiencia en procesos de cocina y su mantenimiento, experiencia en
+                        procesos alimentarios (recetas, tratado de productos)...</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2 class="titulo_seccion">Habilidades</h2>
+
+        <div class="informacion_habilidades">
+            <!-- Como haremos para que al ser 5 lenguajes estén dividios en 3 targetas
+                                                en la parte superior y luego ds abajo que esten centradas de manera como los bolos. -->
+
+            <div class="grid1">
+
+                <div class="carta_habilidad">
+                    <img src="./Imagenes/Lenguajes/Java_lenguaje.jpeg" alt="Imagen del logo de Java">
+                    <h4 class="textoGradient">Java</h4>
+                    <p>+4 meses</p>
+                </div>
+
+                <div class="carta_habilidad">
+                    <img src="./Imagenes/Lenguajes/Pyhton_lenguaje.jpeg" alt="Imagen del logo de Python">
+                    <h4 class="textoGradient">Python</h4>
+                    <p>+1 mes y medio</p>
+                </div>
+
+
+                <div class="carta_habilidad">
+                    <img src="./Imagenes/Lenguajes/MySQL_lenguaje.jpeg" alt="Imagen del logo de SQL">
+                    <h4 class="textoGradient">SQL</h4>
+                    <p>+1 mes</p>
+                </div>
+
+            </div>
+
+            <div class="grid2">
+
+                <div class="carta_habilidad">
+                    <img src="./Imagenes/Lenguajes/Html_lenguajes.jpeg" alt="Imagen del logo de HTML5">
+                    <h4 class="textoGradient">HTML5</h4>
+                    <p>+3 meses y medio</p>
+                </div>
+
+                <div class="carta_habilidad">
+                    <img src="./Imagenes/Lenguajes/CSS_lenguaje.png" alt="Imagen del logo de CSS">
+                    <h4 class="textoGradient">CSS</h4>
+                    <p>+3 meses y medio</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2 class="titulo_seccion">Formación Académica</h2>
+
+        <div class="informacion_educacion">
+
+            <div class="grid3">
+
+                <div class="carta_educacion">
+                    <span class="textoGradient">Educación Secundária Obligatória</span>
+                    <h4>Sant Ramón de Penyafort</h4>
+                    <h4>09/09/2016 - 16/06/2020</h4>
+                    <a class="textoGradient" href="https://www.vilafranca.manyanet.org" target="blank">Página web</a>
+                </div>
+
+                <div class="carta_educacion">
+                    <span>Bachillerato Social / Económico</span>
+                    <h4> Institut Milà i Fontalas</h4>
+                    <h4>09/09/2020 - 08/05/2024</h4>
+                    <a class="textoGradient"  href="https://insmilaifontanals.cat" target="blank">Página web</a>
+                </div>
+
+                <div class="carta_educacion">
+                    <span>Desarollo</span>
+                    <span>de Aplicaciones Multiplataforma</span>
+                    <h4>La Salle Gràcia</h4>
+                    <h4>12/09/2024 - Actual</h4>
+                    <a class="textoGradient" href="https://gracia.lasalle.cat" target="blank">Página Web</a>
+                </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2 class="titulo_seccion">Proyectos Recientes</h2>
+
+        <div class="informacion_proyectos">
+
+            <div class="grid4">
+
+                <div class="carta_proyecto">
+
+                    <img src="./Imagenes/Otros/Foto_TurisCat.jpeg" alt="Foto del logo de TurismeCat">
+                    <h3 class="textoGradient">TurismeCat</h3>
+                    <p>TurismeCat es una aplicación interactiva diseñada para
+                        facilitar la experiencia de los usuarios en la exploración de destinos
+                        turísticos en Barcelona.
+                    </p>
+                    <div class="boton"> <!-- Porque es que el botón está tan largo y no pequeño osea sin las medidas 
+                                            tan largas y no como un botón normal-->
+                        <a href="https://github.com/LaSalleGracia-Programacio/24-25-pr-ctica-i-dean-martin-y-pol-gonzalez" target="blank">Visitar en Github</a>
+                    </div>
+
+                </div>
+
+                <div class="carta_proyecto">
+
+                    <img src="./Imagenes/Otros/Foto_Slots.jpeg" alt="Foto del logo de Slots">
+                    <h3 class="textoGradient">Slots</h3>
+                    <p>Un juego de azar rápido y emocionante. Slots gana popularidad al ser un juego fácil de ejecutar,
+                        donde se genera una combinación de símbolos aleatoria y, dependiendo de dicha combinación,
+                        el jugador puede ganar o perder dinero.</p>
+                    <div class="boton">
+                        <a href="https://github.com/La-Salle-Gracia-FP/24-25-python-game-DeanMartin123" target="blank">Visitar en Github</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contacto">
+
+        <form name="contact" netlify> <!-- Hacer formulario para que se pueda subir en Netlify-->
+
+            <div class="input-box">
+    
+                <h2 class="titulo_seccion">Contacta Conmigo</h2>
+    
+                <div class="input">
+                    <input type="text" placeholder="ejemplo@email.com">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+    
+                <button class="boton" type="submit">Envía</button>
+    
+            </div>
+    
+        </form>
+
+    </section>
+    
+    <footer>
+
+        <div class="informacion_contacto">
+
+            <div class="item_contacto">
+                <i class="fa-solid fa-inbox"></i>
+                <p>dean.martin@gracia.lasalle.cat</p>
+            </div>
+        
+            <div class="item_contacto">
+                <i class="fa-solid fa-phone"></i>
+                <p>+34 691-329-375</p>
+            </div>
+
+        </div>
+
+        <div class="redes_sociales">
+
+            <a href="https://github.com/iamdeanmartin" target="_blank"> <!-- La propiedad "target blank"
+                                                                        hace que el link referenciado se 
+                                                                        habra en otra ventana -->
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#sobremi">Sobre Mi</a>
+            </li>
+
+            <li>
+                <a href="#contenido">Contenido</a>
+            </li>
+
+            <li>
+                <a href="#contacto">Contacto</a>
+            </li>
+
+        </ul>
+
+        <p class="copyright">© All Rights Reserved | Dean Martin</p>
+
+    </footer>
+
+</body>
+
+</html>
