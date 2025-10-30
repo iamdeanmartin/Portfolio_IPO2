@@ -72,6 +72,30 @@
   border-color: #bb86fc;
 }
 
+.darkmode .carta_grid .boton,
+.darkmode .carta_grid .boton a {
+  color: #ffffff;
+  border-color: #ffffff;
+  background-color: transparent;
+  transition: all 0.35s ease;
+}
+
+.darkmode .carta_grid .boton:hover,
+.darkmode .carta_grid .boton:hover a {
+  background-color: #ffffff;
+  color: #121212;
+  border-color: #ffffff;
+  transition: all 0.35s ease;
+}
+
+.darkmode .carta_proyecto .boton:hover,
+.darkmode .carta_proyecto .boton:hover a {
+  background-color: #ffffff;
+  color: #121212;
+  border-color: #ffffff;
+  transition: all 0.35s ease;
+}
+
 /* Scrollbar en el dark mode */
 .darkmode ::-webkit-scrollbar-track {
   background-color: #1e1e1e;
