@@ -300,6 +300,22 @@ a {
   color: white;
 }
 
+.carta_grid .boton {
+  align-self: center;
+  margin-top: 1rem;
+}
+
+.carta_grid:hover .boton {
+  border: 2px solid white;
+  color: white;
+}
+
+.carta_grid:hover .boton:hover {
+  border: 2px solid white;
+  background-color: white;
+  color: black;
+}
+
 .carta_grid i {
   font-size: 1.5rem;
   margin-bottom: 1rem;
