@@ -500,22 +500,56 @@ a {
 
 .grid4 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
 }
 
 .carta_proyecto {
-  padding: 3rem 2rem;
+  padding: 2rem 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 1.5rem;
+  gap: 1rem;
   border: 2px solid black;
-  border-radius: 3rem;
+  border-radius: 1.5rem;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  height: 100%;
+}
+
+.carta_proyecto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.25rem;
+  border: 2px solid black;
+  border-radius: 1.5rem;
+  transition: 0.3s ease-in-out;
+  height: 100%;
+}
+
+.carta_proyecto .boton a,
+.carta_proyecto .boton {
+  margin-top: auto;
+  align-self: center;
+}
+
+.carta_proyecto ul {
+  flex: 1;
+  margin: 0.25rem 0 1rem;
+  padding-left: 1.1rem;
+  text-align: left;
+  line-height: 1.35;
+  font-size: 0.95rem;
+}
+
+.carta_proyecto li {
+  margin: 0.2rem 0;
 }
 
 .carta_proyecto:hover {
@@ -526,8 +560,12 @@ a {
 }
 
 .carta_proyecto img {
-  width: 20vw;
-  border-radius: 1rem;
+  width: 100%;
+  max-width: 220px;
+  height: 140px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 .carta_proyecto:hover .boton {
@@ -546,8 +584,8 @@ a {
 }
 
 .carta_proyecto h3 {
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 1.4rem;
+  font-weight: 600;
   background: linear-gradient(
     to right,
     rgba(255, 171, 145, 1) 0%,
@@ -744,6 +782,10 @@ footer ul li a:hover {
     flex-direction: column;
   }
 
+  .grid4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .input-box input {
     padding: 2rem 4rem;
     font-size: 2rem;
@@ -879,6 +921,10 @@ footer ul li a:hover {
 
   .sobremicontainer img {
     width: 80vw;
+  }
+
+  .grid4 {
+    grid-template-columns: 1fr;
   }
 
   .input-box input {
