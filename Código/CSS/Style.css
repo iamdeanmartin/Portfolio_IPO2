@@ -99,72 +99,58 @@ body {
 
 /*Apartado dedicado a los elementos de la cabecera. */
 #theme-switch {
-  height: 50px;
-  width: 50px;
-  padding: 0;
-  border-radius: 50%;
-  background-color: gray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
   position: fixed;
   top: 1rem;
   left: 1rem;
-  border: none;
   z-index: 1000;
-  transition: background-color 0.25s ease, transform 0.15s ease;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #333, #111);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.4s ease, transform 0.2s ease;
 }
 
 /* Iconos dentro del botón */
 #theme-switch i {
+  position: absolute;
+  font-size: 1.3rem;
   color: white;
-  font-size: 1.2rem;
-  transition: color 0.25s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Mostrar solo el icono de luna por defecto */
-#theme-switch i:last-child {
-  display: none;
-}
-
-/* Cuando está activado el modo oscuro, cambia a sol */
-.darkmode #theme-switch i:first-child {
-  display: none;
-}
-
-.darkmode #theme-switch i:last-child {
-  display: block;
+#theme-switch .fa-sun {
+  opacity: 0;
+  transform: scale(0.5) rotate(-90deg);
 }
 
 /* Efecto hover */
 #theme-switch:hover {
-  background-color: black;
-  transform: scale(1.06);
+  transform: scale(1.08);
+  background: linear-gradient(145deg, #444, #222);
 }
 
 #theme-switch:hover i {
   color: white;
 }
 
-/* Hover en modo oscuro */
-.darkmode #theme-switch:hover {
-  background-color: white;
+.darkmode #theme-switch {
+  background: linear-gradient(145deg, #f0b90b, #f39c12);
 }
 
-.darkmode #theme-switch:hover i {
-  color: #121212;
+.darkmode #theme-switch .fa-moon {
+  opacity: 0;
+  transform: scale(0.5) rotate(90deg);
 }
 
-/* Efecto al hacer clic */
-#theme-switch:active {
-  transform: scale(0.96);
-}
-
-/* Foco accesible (teclado) */
-#theme-switch:focus-visible {
-  outline: 3px solid #bb86fc;
-  outline-offset: 2px;
+.darkmode #theme-switch .fa-sun {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
 /* Eliminamos la barra de navegación y el logo */
