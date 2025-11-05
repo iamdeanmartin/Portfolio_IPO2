@@ -1,28 +1,22 @@
 * {
-  /* Implementamos unas caracterÃ­sticas comunes al proyecto. */
-
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   text-decoration: none;
-  scroll-behavior: smooth; /* Esto modifica la forma en la que se percibe 
-                            la pÃ¡gina al navegar arriba y abajo dentro de ella. */
+  scroll-behavior: smooth;
   list-style: none;
 }
 
-/* Estilos generales para dark mode */
 .darkmode {
   background-color: #121212;
   color: #e0e0e0;
 }
 
-/* Header en el dark mode */
 .darkmode header {
   background-color: rgba(20, 20, 20, 0.9);
 }
 
-/* Textos que deben cambiar de negro a blanco */
 .darkmode .logo,
 .darkmode li a,
 .darkmode .carta_grid,
@@ -38,7 +32,6 @@
   color: #ffffff;
 }
 
-/* Botones en el dark mode */
 .darkmode .boton {
   border: 2px solid #ffffff;
   background-color: transparent;
@@ -50,7 +43,6 @@
   color: #121212;
 }
 
-/* Cartas en el dark mode */
 .darkmode .carta_grid,
 .darkmode .carta_habilidad,
 .darkmode .carta_educacion,
@@ -66,7 +58,6 @@
   background-color: #2d2d2d;
 }
 
-/* Inputs en el dark mode */
 .darkmode .input-box input {
   background-color: #1e1e1e;
   border-color: #bb86fc;
@@ -96,7 +87,6 @@
   transition: all 0.35s ease;
 }
 
-/* Scrollbar en el dark mode */
 .darkmode ::-webkit-scrollbar-track {
   background-color: #1e1e1e;
 }
@@ -109,7 +99,6 @@
   background-color: #9b5ff2;
 }
 
-/* Mantenemos los gradientes de texto */
 .darkmode .textoGaradient {
   background-clip: text;
   color: transparent;
@@ -117,11 +106,9 @@
 
 body {
   padding-top: 50px;
-  padding-bottom: 50px; /* Con estas propiedades despegamos el proyecto de la parte superior
-    e inferior de la pantalla. */
+  padding-bottom: 50px;
 }
 
-/*Apartado dedicado a los elementos de la cabecera. */
 #theme-switch {
   position: fixed;
   top: 1rem;
@@ -140,7 +127,6 @@ body {
   transition: background 0.4s ease, transform 0.2s ease;
 }
 
-/* Iconos dentro del botón */
 #theme-switch i {
   position: absolute;
   font-size: 1.3rem;
@@ -153,7 +139,6 @@ body {
   transform: scale(0.5) rotate(-90deg);
 }
 
-/* Efecto hover */
 #theme-switch:hover {
   transform: scale(1.08);
   background: linear-gradient(145deg, #444, #222);
@@ -177,7 +162,6 @@ body {
   transform: scale(1) rotate(0deg);
 }
 
-/* Eliminamos la barra de navegación y el logo */
 .links-navegador,
 #menu-icon,
 .logo {
@@ -186,9 +170,13 @@ body {
 
 section {
   min-height: 85vh;
-  padding: 8rem 12%;
+  padding: 5rem 10%;
   width: 100%;
   position: relative;
+}
+
+section#proyectos {
+  padding-top: 16rem;
 }
 
 section#contacto {
@@ -196,33 +184,30 @@ section#contacto {
   padding: 1.5rem 12% 0.75rem;
 }
 
-/* Apartados dedicados a la foto de perfil, "SobreMi" etc... */
 .sobremi {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 10rem;
 }
 
 .sobremi .sobremicontainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10rem; /* Le damos una separaciÃ³n entre la foto y la informaciÃ³n personal. */
+  gap: 10rem;
 }
 
 .sobremi img {
-  /* En esteapartado del cÃ³digo modificamos la apariencia de la foto de perfil. */
-  /* Porque la imagen no se coloca al costado de las letras tal y como el ejemplo de youtube. */
-
   width: 26vw;
-  aspect-ratio: 1/1; /*Esta funciÃ³n nos permite modificar el formato de la imagen a que no sea rectangulo. */
+  aspect-ratio: 1/1;
   border-radius: 50%;
-  object-fit: cover; /* Nos permite redondear la imagen y haciendo el "detach" anterior. */
+  object-fit: cover;
 }
 
 .caja_info {
   display: flex;
-  flex-direction: column; /* Lo hacemos columna porque queremos que uno este encima del otro. */
+  flex-direction: column;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -247,7 +232,7 @@ section#contacto {
     rgba(255, 89, 131, 1) 100%
   );
   background-clip: text;
-  color: transparent; /* Gracias a estas lineas de cÃ³digo hacemos que el texto tenga el color gradient. */
+  color: transparent;
   font-size: 2rem;
 }
 
@@ -258,13 +243,96 @@ section#contacto {
   align-items: center;
 }
 
+.scroll-arrow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #000;
+  opacity: 0.7;
+  animation: arrowBounce 1.5s infinite;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  bottom: 3rem;
+}
+
+.scroll-arrow:hover {
+  opacity: 1;
+}
+
+@keyframes arrowBounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
 a {
   color: black;
 }
 
-.boton {
-  /* Porque no se centran los botones. */
+.darkmode .scroll-arrow {
+  color: #fff;
+}
 
+.darkmode .carta_grid,
+.darkmode .carta_habilidad,
+.darkmode .carta_educacion,
+.darkmode .carta_proyecto {
+  border-color: #bb86fc;
+  background-color: transparent !important;
+  transition: none !important;
+}
+
+.darkmode .carta_grid:hover,
+.darkmode .carta_habilidad:hover,
+.darkmode .carta_educacion:hover,
+.darkmode .carta_proyecto:hover {
+  background-color: transparent !important;
+  transform: none !important;
+}
+
+.darkmode .carta_grid .boton,
+.darkmode .carta_educacion .boton,
+.darkmode .carta_proyecto .boton {
+  background: transparent !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+}
+
+.darkmode .carta_grid .boton:hover,
+.darkmode .carta_educacion .boton:hover,
+.darkmode .carta_proyecto .boton:hover {
+  background: #fff !important;
+  color: #121212 !important;
+  border-color: #fff !important;
+}
+
+.darkmode .carta_proyecto .boton {
+  background: transparent !important;
+  border: 2px solid #fff !important;
+  color: #fff !important;
+}
+
+.darkmode .carta_proyecto .boton a {
+  color: #fff !important;
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
+.darkmode .carta_proyecto .boton:hover {
+  background: #fff !important;
+  border-color: #fff !important;
+}
+
+.darkmode .carta_proyecto .boton:hover a {
+  color: #121212 !important;
+}
+
+.boton {
   border-radius: 3rem;
   background-color: white;
   padding: 0.5rem 1.5rem;
@@ -280,22 +348,21 @@ a {
   color: white;
 }
 
-/* Apartado dedicado a la secciÃ³n de Experiencia Laboral. */
-
 .titulo_seccion {
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
-  margin-bottom: 50px;
+  margin-bottom: 32px;
+}
+
+#sobremi + .titulo_seccion {
+  margin-top: 8rem;
+  display: block;
 }
 
 .informacion_experiencia {
   display: grid;
-  grid-template-columns: repeat(
-    2,
-    1fr
-  ); /* Colocamos en cuantas columnas se organizan
-    las targetas de experiencias ademÃ¡s de quÃ© medida tendrÃ¡n. */
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   justify-content: center;
   gap: 20px;
@@ -314,30 +381,37 @@ a {
   flex-direction: column;
   align-items: baseline;
   justify-content: left;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-}
-
-.carta_grid:hover {
-  transform: scale(1.02);
-  background-color: black;
-  color: white;
+  transition: none;
 }
 
 .carta_grid .boton {
   align-self: center;
   margin-top: 1rem;
+  border: 2px solid #000;
+  background: #fff;
+  color: #000;
+  border-radius: 2rem;
+  transition: 0.25s ease-in-out;
+  padding: 0;
 }
 
-.carta_grid:hover .boton {
-  border: 2px solid white;
-  color: white;
+.carta_grid .boton a {
+  display: block;
+  padding: 0.6rem 1.5rem;
+  color: #000;
+  text-decoration: none;
+  border-radius: inherit;
+  transition: color 0.25s ease-in-out;
 }
 
-.carta_grid:hover .boton:hover {
-  border: 2px solid white;
-  background-color: white;
-  color: black;
+.carta_grid .boton:hover {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.carta_grid .boton:hover a {
+  color: #fff;
 }
 
 .carta_grid i {
@@ -357,37 +431,29 @@ a {
   color: transparent;
 }
 
-/* Apartado que se encarga de la barra de "scrolleo". */
 ::-webkit-scrollbar {
   width: 10px;
 }
-
 ::-webkit-scrollbar-track {
   background-color: white;
 }
-
 ::-webkit-scrollbar-thumb {
   background-color: rgb(102, 102, 102);
   border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgb(66, 66, 66);
 }
 
-/* Apartado encargado de los lenguajes. */
-
 .informacion_habiliadades {
   display: flex;
-  flex-direction: column; /* Hace que se dividan en las columnas que queremos luego. */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 3rem;
 }
 
 .grid1 {
-  /*En este apartado de cÃ³digo solo afectaremos a las targetas de lenguajes de la parte superior. */
-
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
@@ -395,8 +461,6 @@ a {
 }
 
 .grid2 {
-  /*En este apartado de cÃ³digo solo afectamos a las targetas de lenguajes de la parte inferior. */
-
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
@@ -405,13 +469,7 @@ a {
 }
 
 .carta_habilidad {
-  /* Todas las tarjetas del proyecto tendrÃ¡n las mismas caracterÃ­sticas. */
-  /* Porque no aparecen las cartas del grid de la manera deseada, dividido en 3
-                        por encima y en 2 por debajo. */
-
-  border: 3px solid black;
-  border-radius: 3rem;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -419,12 +477,7 @@ a {
   cursor: pointer;
   transition: 0.2s ease-in-out;
   max-width: 100%;
-}
-
-.carta_habilidad:hover {
-  transform: scale(1.02);
-  background-color: black;
-  color: white;
+  padding-top: 4rem !important;
 }
 
 .carta_habilidad img {
@@ -434,39 +487,10 @@ a {
   display: block;
   margin: 10px auto 0;
   border-radius: 0;
+  margin-top: 0.5rem !important;
 }
-
-.carta_habilidad h4 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 10px 0;
-  background: linear-gradient(
-    to right,
-    rgba(255, 171, 145, 1) 0%,
-    rgba(255, 89, 131, 1) 100%
-  );
-  background-clip: text;
-  color: transparent;
-}
-
-.carta_habilidad:hover h4 {
-  /* Hemos de indicar el cambio de color del tÃ­tulo cuando el cursor pasa por encima, 
-                                    sino el tÃ­tulo al ser negro no se ve. */
-
-  background: linear-gradient(
-    to right,
-    rgba(255, 171, 145, 1) 0%,
-    rgba(255, 89, 131, 1) 100%
-  );
-  background-clip: text;
-  color: transparent;
-}
-
-/* Apartado de la FormaciÃ³n Educativa. */
 
 .informacion_educacion {
-  /*Porque no se estÃ¡ poniendo en el medio los elementos. */
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -476,7 +500,7 @@ a {
 
 .grid3 {
   display: grid;
-  grid-template-columns: 1fr; /* Cada targeta coge una parte. */
+  grid-template-columns: 1fr;
   gap: 2rem;
   justify-items: center;
   align-items: center;
@@ -484,8 +508,6 @@ a {
 }
 
 .carta_educacion {
-  /* Este es el estilo adjudicado a las targetas de educacion. */
-
   border: 3px solid black;
   border-radius: 3rem;
   padding: 3rem 2rem;
@@ -496,14 +518,29 @@ a {
   cursor: pointer;
   transition: 0.2s ease-in-out;
   max-width: 100%;
-  width: 75%; /* Con esto hemos hecho que ocupe el espacio deseado. */
+  width: 75%;
   box-sizing: border-box;
 }
 
-.carta_educacion:hover {
-  transform: scale(1.02);
-  background-color: black;
-  color: white;
+.carta_educacion .boton {
+  display: inline-block;
+  border-radius: 2rem;
+  background: #fff;
+  padding: 0.45rem 1.25rem;
+  border: 2px solid #000;
+  cursor: pointer;
+  font-weight: 600;
+  text-wrap: nowrap;
+  transition: 0.2s;
+  font-size: 0.95rem;
+  color: #000;
+  text-decoration: none;
+}
+
+.carta_educacion .boton:hover {
+  background: #000;
+  color: #fff;
+  text-decoration: none;
 }
 
 .carta_educacion span {
@@ -520,8 +557,6 @@ a {
 }
 
 .carta_educacion a {
-  /* Porque antes cuando no estaba el linear gradient
-                            si que se hacia el underline y ahora ya no. */
   margin-top: 10px;
   background: linear-gradient(
     to right,
@@ -538,47 +573,86 @@ a {
   color: white;
 }
 
-/* Apartado de proyectos. */
-
 .grid4 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 2.5rem;
   align-items: stretch;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .carta_proyecto {
-  padding: 2rem 1.25rem;
+  padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 1rem;
-  border: 2px solid black;
-  border-radius: 1.5rem;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  height: 100%;
-}
-
-.carta_proyecto {
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   text-align: center;
-  padding: 2rem 1.25rem;
+  gap: 0.75rem;
   border: 2px solid black;
   border-radius: 1.5rem;
-  transition: 0.3s ease-in-out;
+  cursor: default;
+  transition: none;
+  height: auto;
+  min-height: 430px;
+  max-width: 380px;
+}
+
+.carta_proyecto {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 1.5rem;
+  transition: none;
   height: 100%;
 }
 
-.carta_proyecto .boton a,
+section {
+  min-height: auto !important;
+  padding: rem 10% !important;
+}
+
+#sobremi {
+  padding-bottom: 12rem !important;
+}
+
 .carta_proyecto .boton {
   margin-top: auto;
   align-self: center;
+  border-radius: 2rem;
+  background: #fff;
+  border: 2px solid #000;
+  cursor: pointer;
+  font-weight: 600;
+  text-wrap: nowrap;
+  font-size: 0.95rem;
+  transition: 0.2s ease-in-out;
+  padding: 0;
+}
+
+.carta_proyecto .boton a {
+  display: block;
+  padding: 0.45rem 1.25rem;
+  text-decoration: none;
+  color: #000;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.carta_proyecto .boton:hover {
+  background: #000;
+  border-color: #000;
+}
+
+.carta_proyecto .boton:hover a {
+  color: #fff;
 }
 
 .carta_proyecto ul {
@@ -594,13 +668,6 @@ a {
   margin: 0.2rem 0;
 }
 
-.carta_proyecto:hover {
-  background-color: black;
-  color: white;
-  transform: translateY(-10px) scale(1.02); /* Esto harÃ¡ que produzca una animaciÃ³n de 
-                                    tirar la targeta hacia arriba como si la cogieras. */
-}
-
 .carta_proyecto img {
   width: 100%;
   max-width: 220px;
@@ -610,22 +677,7 @@ a {
   margin: 0 auto;
 }
 
-.carta_proyecto:hover .boton {
-  /* Se encarga de cambiar el estilo al botÃ³n cuando a la carta le pasamos el cursor. */
-
-  border: 2px solid white;
-  color: white;
-}
-
-.carta_proyecto:hover .boton:hover {
-  /* AquÃ­ tambiÃ©n cambia el estilo cuando se pasa el cursor pero solo se encarga del estilo del botÃ³n. */
-
-  border: 2px solid white;
-  background-color: white;
-  color: black;
-}
-
-.carta_proyecto h3 {
+.carta_proyecto h2 {
   font-size: 1.4rem;
   font-weight: 600;
   background: linear-gradient(
@@ -635,9 +687,8 @@ a {
   );
   background-clip: text;
   color: transparent;
+  margin-top: 0.75rem;
 }
-
-/* Apartado de contacto en el footer. */
 
 .input-box {
   text-align: center;
@@ -716,7 +767,6 @@ footer ul {
   align-items: center;
   gap: 1rem;
 }
-
 ul {
   margin-top: 2rem;
 }
@@ -742,13 +792,11 @@ footer ul li a:hover {
   display: flex;
   gap: 2rem;
 }
-
 .redes_sociales {
   font-size: 2.5rem;
-  cursor: pointer; /* EstÃ¡ propiedad hace que el elemento sea clickable. */
+  cursor: pointer;
   transition: 0.2s ease-in-out;
 }
-
 .redes_sociales i:hover {
   transform: scale(1.1);
   transition: 0.3s ease-in-out;
@@ -778,12 +826,10 @@ footer ul li a:hover {
 .item_contacto:hover {
   transform: scale(1.07);
 }
-
 .item_contacto i {
   font-size: 1.8rem;
   color: black;
 }
-
 .item_contacto p {
   font-size: 1.1rem;
   color: black;
@@ -794,86 +840,69 @@ footer ul li a:hover {
 .informacion_contacto i:hover {
   transform: none;
 }
-
-.item_contacto p {
-  font-size: 1.1rem;
-  color: black;
-  font-weight: bold;
-  margin: 0;
-}
-
 .darkmode .item_contacto i,
 .darkmode .item_contacto p {
   color: white;
 }
 
-/* LLevamos a cabo el responsivess. */
+section:nth-of-type(3) {
+  padding-bottom: 4rem !important; /* reduce el espacio inferior de Formación Académica */
+}
 
-/*Ordenador*/
+section:nth-of-type(4) {
+  padding-top: 4rem !important; /* reduce el espacio superior de Proyectos Personales */
+}
+
 @media (max-width: 1280px) {
   header {
     padding: 1rem 2rem;
     gap: 2rem;
   }
-
   .sobremi .sobremicontainer {
     gap: 3rem;
   }
-
   .informacion_experiencia {
     flex-direction: column;
   }
-
   .grid4 {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .input-box input {
     padding: 2rem 4rem;
     font-size: 2rem;
   }
-
   .input-box input::placeholder {
     font-size: 1.7rem;
   }
-
   .input-box i {
     font-size: 2rem;
   }
 }
 
-/*Tablet*/
 @media (max-width: 768px) {
   header {
     gap: 1rem;
     padding: 1rem 1rem;
   }
-
   header .logo {
     font-size: 1rem;
   }
-
   .sobremicontainer {
     flex-direction: column;
   }
-
   .informacion_experiencia {
     grid-template-columns: 1fr;
   }
-
   .input-box input {
     padding: 1rem 2rem;
     font-size: 1.8rem;
   }
-
   .input-box input::placeholder {
     font-size: 1.5rem;
   }
-
   .input-box i {
     display: none;
   }
-
   .grid,
   .grid1,
   .grid2,
@@ -881,32 +910,28 @@ footer ul li a:hover {
   .grid4 {
     grid-template-columns: repeat(1, 1fr);
   }
-
   .carta_habilidad img {
     width: 100px;
     height: 100px;
   }
 }
 
-/* Movil */
 @media (max-width: 600px) {
   #ContenidoPrivado {
     margin-top: 100px;
   }
-
   #menu-icon {
     display: block;
     cursor: pointer;
     z-index: 99;
   }
-
   .links-navegador {
     position: fixed;
     top: 80px;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.9);
-    border-radius: 2rem; /* Bordes redondeados */
+    border-radius: 2rem;
     flex-direction: column;
     align-items: center;
     padding: 1.5rem;
@@ -914,21 +939,16 @@ footer ul li a:hover {
     z-index: 99;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
     width: 80%;
-    max-width: 320px; /* Evita que se haga muy ancho */
+    max-width: 320px;
   }
-
   .links-navegador li {
     margin: 15px 0;
     text-align: center;
   }
-
   .links-navegador.active {
     display: flex;
   }
-
   li a::before {
-    /* El before es un efecto "hover". */
-
     position: absolute;
     content: "";
     width: 0;
@@ -936,59 +956,47 @@ footer ul li a:hover {
     height: 5px;
     top: 25px;
     border-radius: 1rem;
-    transition: 0.3s ease-in-out; /* TransiciÃ³n de tres fases: principio, medio y final (con velocidades distintas. */
+    transition: 0.3s ease-in-out;
     background: linear-gradient(
       to right,
       rgba(255, 171, 145, 1) 0%,
       rgba(255, 89, 131, 1) 100%
     );
-    /* Esta funciÃ³n genera una linea
-                                                                        cambiante de color de izquierda a derecha. */
   }
-
   li a:hover::before {
-    width: 100%; /* Gracias a esto en el momento que el cursor pase por encima del elemento que afecte el "before", el 
-                    ancho que tendrÃ¡ es de un 100%. */
+    width: 100%;
   }
-
   header {
     display: flex;
     align-items: center;
     justify-content: center;
     background: #333;
     padding: 1rem 2rem;
-    border-radius: 50px; /* Hace que el header sea redondeado */
+    border-radius: 50px;
     width: max-content;
     margin: 1rem auto;
   }
-
   .carta_habilidad img {
     width: 90px;
     height: 90px;
   }
-
   header .logo {
     font-size: 1.5rem;
   }
-
   .sobremicontainer img {
     width: 80vw;
   }
-
   .grid4 {
     grid-template-columns: 1fr;
   }
-
   .input-box input {
     padding: 0.5rem 3rem;
     width: 80%;
     font-size: 1.5rem;
   }
-
   .input-box input::placeholder {
     font-size: 1.4rem;
   }
-
   footer {
     gap: 1rem;
   }
