@@ -41,6 +41,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  const goDown = document.getElementById("go-down");
+  const target = document.getElementById("proyectos");
+
+  if (goDown && target) {
+    const go = () =>
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    goDown.addEventListener("click", go);
+
+    const duration = 7000;
+
+    // accesible con teclado (opcional pero recomendable)
+    goDown.setAttribute("role", "button");
+    goDown.setAttribute("tabindex", "0");
+    goDown.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") go();
+    });
+  }
+
   // eliminado: banner de cookies
 });
 
